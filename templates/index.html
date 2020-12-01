@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>RISK MANAGEMENT</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='static\css\style.css') }}">
+</head>
+
+<body>
+ <div class="login">
+    <h1>Are you worried that you wont be able to to invest in stocks?</h1>
+    <h1>Give the below details our machine will predict for you</h1>
+     <h1>If our machine shows 1 then you can invest</h1>
+     <h1>If you get a zero then you have to rethink before you invest you come under risk zone</h1>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Monthly Income" placeholder="Monthly Income" required="required" />
+        <input type="text" name="Monthly Expenditure" placeholder="Expenditure" required="required" />
+		
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
